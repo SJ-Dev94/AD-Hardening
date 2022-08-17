@@ -1,5 +1,8 @@
-#this is broken
+#this script finds pc's by operating system
+#Change the operating system within the quotes of $opSys
 
-$opsyslike = "OperatingSystem -Like 'Windows 10*'"
 
-Get-ADComputer -Filter {"$opsyslike"} -Property * | Format-Table Name,OperatingSystem,OperatingSystemServicePack,OperatingSystemVersion -Wrap -Auto | Export-Csv C:\Users\Tekdoc\Documents\NonCompliantWin10.csv
+$opSys = {OperatingSystem -Like 'Windows 8*'}
+
+
+Get-ADComputer -Filter "$opSys" -Properties * | FT Name, LastLogonDate -Autosize
