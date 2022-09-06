@@ -1,0 +1,1 @@
+cybercnsagent.exe -c 2b093714-0e90-43be-b1a6-73d77be3767d -a 2b093714-0e90-43be-b1a6-73d77be3767d -s d089a58b-0e66-4a59-9927-eb640c81b09a -b portaluseast2.mycybercns.com -e tekdocsolutions -i LightWeight
