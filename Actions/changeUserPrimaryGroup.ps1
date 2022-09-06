@@ -3,5 +3,8 @@
 # Will likely break GPO Perms 
 ###
 
-$group = get-adgroup "CHANGE ME to the domain user group" -properties @("primaryGroupToken")
-get-aduser "CHANGE ME TO USER" | set-aduser -replace @{primaryGroupID=$group.primaryGroupToken}
+$group = get-adgroup "Domain Users" -properties @("primaryGroupToken")
+get-aduser "Guest" | set-aduser -replace @{primaryGroupID=$group.primaryGroupToken}
+
+
+Get-ADUser -Filter * -Properties PrimaryGroup | Where-Object { $_.PrimaryGroup -ne (Get-ADGroup -Identity "Domain Users").DistinguishedName } 

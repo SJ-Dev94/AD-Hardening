@@ -1,1 +1,5 @@
-Get-ADUser -Filter {(AdminCount -eq 1) -and (AccountNotDelegated -eq $false)}
+Get-ADGroupMember "Domain Admins" |
+get-aduser -Properties AccountNotDelegated |
+Where-Object {
+  -not $_.AccountNotDelegated
+}
