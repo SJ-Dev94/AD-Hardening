@@ -5,8 +5,8 @@
 $Days = 180
 $Time = (Get-Date).Adddays(-($Days))
 
-#NO TOUCHY is a security group to move all "Mysterious" users that could potentially cause issue on disable so we can filter against this group below. 
-$group = Get-ADGroup "NO TOUCHY"
+#DNT (do not touch)is a security group to move all "Mysterious" users that could potentially cause issue on disable so we can filter against this group below. 
+$group = Get-ADGroup "DNT"
 
 #GroupFilter english explanation: memberof, not equal to group.distinguishedname. When filtering for user groups, you MUST use the distinguised name making this line necesarry.
 # -f is the string operator which takes parameters on the right which is then input on the left, ie: {0}. 

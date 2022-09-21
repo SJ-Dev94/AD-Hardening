@@ -12,10 +12,12 @@ Get-ADComputer -Filter {LastLogonTimeStamp -lt $Time} | Set-ADComputer -Enabled 
 Get-ADOrganizationalUnit -Filter 'Name -like "Disabled Computers"'
 
 #GUID from above
-$TargetOU = "INSERT GUID HERE"
+$TargetOU = "insert guid here"
 
 #Finds disabled computers, moves them to the target OU (which should be "Disabled Computers" )
 Get-ADComputer -Filter {(Enabled -eq $False)} | Move-ADObject -TargetPath $TargetOU
+
+
 
 
 
